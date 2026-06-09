@@ -14,5 +14,5 @@ jobs:
           cache: ''
       - name: Create package.json
         run: |
-          echo '{"name":"dummy-package","version":"1.0.0","dependencies":{"@dhis2/rule-engine":"3.8.1"}}' > package.json
+          echo '{"name":"dummy-package","version":"1.0.0","dependencies":{}' > package.json
       - uses: ./
