@@ -1,0 +1,17 @@
+name: Test safe install with cache
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  dummy-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v6
+        with:
+          cache: ''
+      - name: Create package.json
+        run: |
+          echo '{"name":"dummy-package","version":"1.0.0","dependencies":{"@dhis2/rule-engine":"3.8.1"}}' > package.json
+      - uses: ./
