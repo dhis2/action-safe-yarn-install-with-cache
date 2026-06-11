@@ -1,0 +1,18 @@
+name: Test safe install with cache
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  dummy-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          cache: ''
+      - name: Create package.json
+        run: |
+          echo '{"name":"dummy-package","version":"1.0.0","dependencies":{}}' > package.json
+      - uses: ./
