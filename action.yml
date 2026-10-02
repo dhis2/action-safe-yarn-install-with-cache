@@ -2,6 +2,12 @@ name: 'Safe yarn install using cache'
 description: 'Restore yarn/Cypress cache, install safe-chain, and run yarn install'
 author: 'DHIS2'
 
+inputs:
+  install-args:
+    description: 'Arguments passed to yarn install'
+    required: false
+    default: '--frozen-lockfile'
+
 runs:
   using: composite
   steps:
@@ -34,4 +40,5 @@ runs:
       env:
         SAFE_CHAIN_MINIMUM_PACKAGE_AGE_HOURS: 120
         SAFE_CHAIN_MINIMUM_PACKAGE_AGE_EXCLUSIONS: "@dhis2/*"
-      run: yarn install --frozen-lockfile
+        INSTALL_ARGS: ${{ inputs.install-args }}
+      run: yarn install $INSTALL_ARGS
