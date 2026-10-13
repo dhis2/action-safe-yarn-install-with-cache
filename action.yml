@@ -39,6 +39,6 @@ runs:
       shell: bash
       env:
         SAFE_CHAIN_MINIMUM_PACKAGE_AGE_HOURS: 120
-        SAFE_CHAIN_MINIMUM_PACKAGE_AGE_EXCLUSIONS: "@dhis2/*"
+        SAFE_CHAIN_MINIMUM_PACKAGE_AGE_EXCLUSIONS: "@dhis2/*,@dhis2-ui/*"
         INSTALL_ARGS: ${{ inputs.install-args }}
       run: yarn install $INSTALL_ARGS
